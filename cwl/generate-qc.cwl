@@ -241,13 +241,12 @@ steps:
     in:
       output_directory_name:
         valueFrom: ${ return "consolidated_metrics"; }
-      input_directories: directories
       conpair_directory: put-conpair-files-into-directory/directory
       qc_merged_and_hotspots_directory: qc_merge_and_hotspots/qc_merged_directory
       generate_images_directory: generate_images/output
       files: files
       directories:
-        valueFrom: ${ var metrics_data = [inputs.qc_merged_and_hotspots_directory, inputs.generate_images_directory, inputs.conpair_directory]; return metrics_data.concat(inputs.input_directories); }
+        valueFrom: ${ var metrics_data = [inputs.qc_merged_and_hotspots_directory, inputs.generate_images_directory, inputs.conpair_directory]; return metrics_data; }
     out: [ directory ]
   consolidate_metrics:
     run: ./tools/consolidate-files/consolidate-files-mixed.cwl
