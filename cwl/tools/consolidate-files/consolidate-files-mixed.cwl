@@ -6,6 +6,8 @@ id: consolidate-files-mixed
 
 requirements:
   - class: InlineJavascriptRequirement
+  - class: LoadListingRequirement
+    loadListing: deep_listing
 
 inputs:
 
